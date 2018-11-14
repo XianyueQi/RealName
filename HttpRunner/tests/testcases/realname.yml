@@ -1,0 +1,344 @@
+- config:
+    name: 实名认证内部服务
+    variables:
+        #测试环境
+        # - oid: 527b32be6568435ebdfc4412944906ac
+        # - orgOid: 69ddbdf50bb84cdb963ee991c451d800
+        # - projectId: '1111563841'
+        # - Secret: 753b9f6acafcbba300315838be3374c1
+        #正式环境
+        - oid: 268a277f68d04ed185f4c46b369452e0
+        - orgOid: 69ddbdf50bb84cdb963ee991c451d800
+        - projectId: '1111565979'
+        - Secret: 5dc88da7786569d2879bd1bfbd5296ef
+        - name: 黄奇
+        - idno: 330902198803040677
+    request: 
+        #测试环境
+        # base_url: http://172.20.61.231:8280
+        #生产环境
+        # base_url: http://172.28.90.199:8080
+        base_url: http://172.28.90.210:8080
+        headers:
+            Content-Type: application/json
+
+- test:
+    name: 个人银行四要素+短信验证码(正确)
+    request:
+        url: /bankFourWithAuthCode/model
+        method: POST
+        json: 
+            name: 高美君
+            idno: 14273019911003072X
+            mobile: 18292689424
+            cardno: 6214850293496011
+    extract:
+        - serviceId: content.data.serviceId
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 个人银行四要素+短信验证码(信息不正确&字段为空)
+    parameters:
+        - name-idno-mobile-cardno:
+            - ["高美","14273019911003072X","18292689424","6214850293496011"]
+            - ["高美君","14273019911003071X","18292689424","6214850293496011"]
+            - ["高美君","14273019911003072X","18292689434","6214850293496011"]
+            - ["高美君","14273019911003072X","18292689424","6214850293496021"]
+            - ["","14273019911003072X","18292689424","6214850293496021"] 
+            - ["高美君","","18292689424","6214850293496021"]
+            - ["高美君","14273019911003072X","","6214850293496021"]
+            - ["高美君","14273019911003072X","18292689424",""]
+    request:
+        url: /bankFourWithAuthCode/model
+        method: POST
+        json: 
+            name: $name
+            idno: $idno
+            mobile: $mobile
+            cardno: $cardno
+    validate:
+        - eq: [content.success, false]
+
+- test:
+    name: 短信验证码校验(正确)
+    request:
+        url: /validateAuthCode/model
+        method: POST
+        json: 
+            serviceId: $serviceId
+            authcode: 123456
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 短信验证码校验(验证码不正确/字段为空)
+    parameters:
+        - authcode: ["654321",""]
+    request:
+        url: /validateAuthCode/model
+        method: POST
+        json: 
+            serviceId: $serviceId
+            authcode: 654321
+    validate:
+        - eq: [content.success, false]
+
+- test:
+    name: 获取微众刷脸URL（需要手工校验）
+    request:
+        url: /faceAuthByUrl/model
+        method: POST
+        json: 
+            name: $name
+            idno: $idno
+            from: browser
+            faceAuthMode: 1
+            callbackUrl: http://www.baidu.com
+    extract:
+        - serviceId_: content.data.serviceId
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 获取芝麻刷脸URL（需要手工校验）
+    request:
+        url: /faceAuthByUrl/model
+        method: POST
+        json: 
+            name: $name
+            idno: $idno
+            from: browser
+            faceAuthMode: 2
+            callbackUrl: http://www.baidu.com
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 查询刷脸认证结果（只保证接口通）
+    request:
+        url: /queryFaceAuthByUrlResult/model
+        method: POST
+        json: 
+            serviceId: $serviceId_
+            needFile: true
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 企业信息比对（正确）
+    request:
+        url: /orgInfoAuth/model
+        method: POST
+        json: 
+            name: 杭州天谷信息科技有限公司
+            codeORG: 745830607
+            codeREG: 330108000003512
+            codeUSC: 913301087458306077
+            legalName: 何一兵
+    extract:
+        - serviceId__: content.data.serviceId
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 企业信息比对（信息不正确/字段为空）
+    parameters:
+    - codeORG-codeREG-codeUSC-legalName:
+        - ["745830608","","","何一兵"]
+        - ["","330108000003513","",""]
+        - ["","","913301087458306078",""]
+        - ["","","","何一兵"]
+        - ["745830607","330108000003512","913301087458306077","何一"]
+    request:
+        url: /orgInfoAuth/model
+        method: POST
+        json: 
+            name: 杭州天谷信息科技有限公司
+            codeORG: $codeORG
+            codeREG: $codeREG
+            codeUSC: $codeUSC
+            legalName: $legalName
+    validate:
+        - eq: [content.success, false]
+
+- test:
+    name: 打款（正确）
+    request:
+        url: /toPayOrg/model
+        method: POST
+        json: 
+            serviceId: $serviceId__
+            name: 杭州天谷信息科技有限公司
+            bank: 平安银行
+            cardno: 11003491675701
+            subbranch: 平安银行杭州高新支行
+            provice: 浙江省
+            city: 杭州市
+            notifyUrl: http://openapi2.tsign.cn:8081/realname/rest/normal/notify/callback/llpay
+            prcptcd: 
+    validate:
+        - eq: [content.success, true]
+        - eq: [content.data.serviceId, $serviceId__]
+
+- test:
+    name: 打款（字段为空）
+    parameters:
+        - name-bank-cardno-subbranch:
+            - ["","平安银行","11003491675701","平安银行杭州高新支行"]
+            - ["杭州天谷信息科技有限公司","","11003491675701","平安银行杭州高新支行"]
+            - ["杭州天谷信息科技有限公司","平安银行","","平安银行杭州高新支行"]
+            - ["杭州天谷信息科技有限公司","平安银行","11003491675701",""]
+    request:
+        url: /toPayOrg/model
+        method: POST
+        json: 
+            serviceId: $serviceId__
+            name: $name
+            bank: $bank
+            cardno: $cardno
+            subbranch: $subbranch
+            provice: 浙江省
+            city: 杭州市
+            notifyUrl: http://openapi2.tsign.cn:8081/realname/rest/normal/notify/callback/llpay
+            prcptcd: 
+    validate:
+        - eq: [content.success, false]
+
+- test:
+    name: 校验金额（正确）
+    request:
+        url: /payAuth/model
+        method: POST
+        json: 
+            serviceId: $serviceId__
+            cash: 0.01
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 校验金额（金额错误）
+    parameters:
+        - cash: ["0.02","0.03","0.04"]
+    request:
+        url: /payAuth/model
+        method: POST
+        json: 
+            serviceId: $serviceId__
+            cash: $cash
+    validate:
+        - contains: [content.message, 打款金额验证失败]
+
+- test:
+    name: 校验金额（金额错误超限）
+    request:
+        url: /payAuth/model
+        method: POST
+        json: 
+            serviceId: $serviceId__
+            cash: 0.05
+    validate:
+        - contains: [content.message, 超出最大验证次数]
+
+- test:
+    name: 校验金额（流程关闭）
+    request:
+        url: /payAuth/model
+        method: POST
+        json: 
+            serviceId: $serviceId__
+            cash: 0.06
+    validate:
+        - contains: [content.message, 认证流程已关闭]
+
+- test:
+    name: 打款查询（只保证接口通）
+    request:
+        url: /payQuery/model
+        method: POST
+        json: 
+            serviceId: $serviceId__
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 获取实名认证开放服务地址（个人-正确）
+    request:
+        url: /getOpenRealnameUrl/model
+        method: POST
+        json: 
+            oid: $oid
+            orgOid: $orgOid
+            projectId: $projectId
+            redirectUrl: http://www.baidu.com
+            type: 
+            realNameObject: 2
+            showResultPage: 1
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 获取实名认证开放服务地址（个人-字段为空）
+    parameters:
+        - oid-projectId-realNameObject:
+            - ["","1111563841","2"]
+            - ["$oid","","2"]
+            - ["527b32be6568435ebdfc4412944906ac","1111563841",""]
+    request:
+        url: /getOpenRealnameUrl/model
+        method: POST
+        json: 
+            oid: $oid
+            orgOid: 
+            projectId: $projectId
+            redirectUrl: http://www.baidu.com
+            type: 
+            realNameObject: $realNameObject
+            showResultPage: 1
+    validate:
+        - eq: [content.success, false]
+
+- test:
+    name: 获取实名认证开放服务地址（企业-正确）
+    request:
+        url: /getOpenRealnameUrl/model
+        method: POST
+        json: 
+            oid: $oid
+            orgOid: $orgOid
+            projectId: $projectId
+            redirectUrl: http://www.baidu.com
+            type: 
+            realNameObject: 1
+            showResultPage: 1
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 获取实名认证开放服务地址（企业-字段为空）
+    parameters:
+        - oid-orgOid-projectId-realNameObject:
+            - ["","69ddbdf50bb84cdb963ee991c451d800","1111563841","1"]
+            - ["527b32be6568435ebdfc4412944906ac","","1111563841","1"]
+            - ["527b32be6568435ebdfc4412944906ac","69ddbdf50bb84cdb963ee991c451d800","","1"]
+            - ["527b32be6568435ebdfc4412944906ac","69ddbdf50bb84cdb963ee991c451d800","1111563841",""]
+    request:
+        url: /getOpenRealnameUrl/model
+        method: POST
+        json: 
+            oid: $oid
+            orgOid: $orgOid
+            projectId: $projectId
+            redirectUrl: http://www.baidu.com
+            type: 
+            realNameObject: $realNameObject
+            showResultPage: 1
+    validate:
+        - eq: [content.success, false]
+
+
+                                               
+        
+                                           
+
+

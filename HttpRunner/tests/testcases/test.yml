@@ -1,0 +1,16 @@
+- config:
+    name: 测试
+    request: 
+        base_url: http://www.baidu.com
+        headers:
+            Content-Type: application/json
+
+- test:
+    name: 测试
+    request:
+        url: /login
+        method: POST
+        json:
+            name: $gen_random_number(5)
+    validate:
+        - eq: [content.success, true]

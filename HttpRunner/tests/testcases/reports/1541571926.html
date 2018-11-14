@@ -1,0 +1,3232 @@
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> - TestReport</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0 auto;
+      width: 960px;
+    }
+    #summary {
+      width: 960px;
+      margin-bottom: 20px;
+    }
+    #summary th {
+      background-color: skyblue;
+      padding: 5px 12px;
+    }
+    #summary td {
+      background-color: lightblue;
+      text-align: center;
+      padding: 4px 8px;
+    }
+    .details {
+      width: 960px;
+      margin-bottom: 20px;
+    }
+    .details th {
+      background-color: skyblue;
+      padding: 5px 12px;
+    }
+    .details tr .passed {
+      background-color: lightgreen;
+    }
+    .details tr .failed {
+      background-color: red;
+    }
+    .details tr .unchecked {
+      background-color: gray;
+    }
+    .details td {
+      background-color: lightblue;
+      padding: 5px 12px;
+    }
+    .details .detail {
+      background-color: lightgrey;
+      font-size: smaller;
+      padding: 5px 10px;
+      text-align: center;
+    }
+    .details .success {
+      background-color: greenyellow;
+    }
+    .details .error {
+      background-color: red;
+    }
+    .details .failure {
+      background-color: salmon;
+    }
+    .details .skipped {
+      background-color: gray;
+    }
+
+    .button {
+      font-size: 1em;
+      padding: 6px;
+      width: 4em;
+      text-align: center;
+      background-color: #06d85f;
+      border-radius: 20px/50px;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+    }
+    a.button{
+      color: gray;
+      text-decoration: none;
+    }
+    .button:hover {
+      background: #2cffbd;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      transition: opacity 500ms;
+      visibility: hidden;
+      opacity: 0;
+    }
+    .overlay:target {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popup {
+      margin: 70px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      width: 50%;
+      position: relative;
+      transition: all 3s ease-in-out;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: #333;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+    .popup .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      transition: all 200ms;
+      font-size: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+    }
+    .popup .close:hover {
+      color: #06d85f;
+    }
+    .popup .content {
+      max-height: 80%;
+      overflow: auto;
+      text-align: left;
+    }
+
+    @media screen and (max-width: 700px) {
+      .box {
+        width: 70%;
+      }
+      .popup {
+        width: 70%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Test Report: </h1>
+
+  <h2>Summary</h2>
+  <table id="summary">
+
+    <tr>
+      <th>START AT</th>
+      <td colspan="4">2018-11-07 14:25:26</td>
+    </tr>
+    <tr>
+      <th>DURATION</th>
+      <td colspan="4">1.660 seconds</td>
+    </tr>
+    <tr>
+      <th>PLATFORM</th>
+      <td>HttpRunner 1.5.8 </td>
+      <td>CPython 3.7.1 </td>
+      <td colspan="2">Windows-10-10.0.17134-SP0</td>
+    </tr>
+    <tr>
+      <th>TOTAL</th>
+      <th>SUCCESS</th>
+      <th>FAILED</th>
+      <th>ERROR</th>
+      <th>SKIPPED</th>
+      <!-- <th>ExpectedFailure</th>
+      <th>UnexpectedSuccess</th> -->
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>8</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <!-- <td>0</td>
+      <td>0</td> -->
+    </tr>
+  </table>
+
+  <h2>Details</h2>
+
+  
+  
+  <h3>新增的接口</h3>
+  <table id="suite_1" class="details">
+    <tr>
+      <th>base_url</th>
+      <td colspan="2"></td>
+      <th colspan="2" class="detail">
+        <a class="button" href="#suite_output_1">parameters & output</a>
+        <div id="suite_output_1" class="overlay">
+            <div class="popup">
+                <h2>Parameters and Output</h2>
+                <a class="close" href="#suite_1">&times;</a>
+                <div class="content">
+                  <div style="overflow: auto">
+                      <table>
+                        <tr>
+                          <th>variables</th>
+                          <th>output</th>
+                        </tr>
+                        
+                      </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>TOTAL: 9</td>
+      <td>SUCCESS: 8</td>
+      <td>FAILED: 1</td>
+      <td>ERROR: 0</td>
+      <td>SKIPPED: 0</td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <th colspan="2">Name</th>
+      <th>Response Time</th>
+      <th>Detail</th>
+    </tr>
+
+    
+    
+    <tr id="record_1_1">
+      <th class="success" style="width:5em;">success</td>
+      <td colspan="2">实名开放-银行四要素（正确）</td>
+      <td style="text-align:center;width:6em;">407.26 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_1">log</a>
+        <div id="popup_log_1_1" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_1">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://172.20.61.252:8380/bankfour/openBankFourRequest
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>User-Agent</strong>: python-requests/2.20.0
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-id</strong>: 1111563841
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 112
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1541571926.0539281
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'name': '陈威宇', 'idno': 362302198609175011, 'mobile': 13868070521, 'cardno': 6212261202030499843}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;name&#34;: &#34;\u9648\u5a01\u5b87&#34;, &#34;idno&#34;: 362302198609175011, &#34;mobile&#34;: 13868070521, &#34;cardno&#34;: 6212261202030499843}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>User-Agent</strong>: python-requests/2.20.0
+                            </div>
+                            
+                            <div>
+                              <strong>Accept-Encoding</strong>: gzip, deflate
+                            </div>
+                            
+                            <div>
+                              <strong>Accept</strong>: */*
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: keep-alive
+                            </div>
+                            
+                            <div>
+                              <strong>content-type</strong>: application/json
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-id</strong>: 1111563841
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 112
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_size</th>
+                        <td>
+                          
+                            147
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>response_time_ms</th>
+                        <td>
+                          
+                            407.26
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>elapsed_ms</th>
+                        <td>
+                          
+                            399.499
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            {&#34;errCode&#34;:0,&#34;msg&#34;:&#34;执行成功&#34;,&#34;data&#34;:{&#34;success&#34;:true,&#34;message&#34;:&#34;执行成功&#34;,&#34;infoauthId&#34;:&#34;9360e81b-51cc-426f-a02c-3447bbd4324c&#34;,&#34;pass&#34;:true}}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://172.20.61.252:8380/bankfour/openBankFourRequest
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            <RequestsCookieJar[<Cookie SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f for 172.20.61.252/>]>
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>text</th>
+                        <td>
+                          
+                            {"errCode":0,"msg":"执行成功","data":{"success":true,"message":"执行成功","infoauthId":"9360e81b-51cc-426f-a02c-3447bbd4324c","pass":true}}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>json</th>
+                        <td>
+                          
+                            {'errCode': 0, 'msg': '执行成功', 'data': {'success': True, 'message': '执行成功', 'infoauthId': '9360e81b-51cc-426f-a02c-3447bbd4324c', 'pass': True}}
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                    <tr>
+                      
+                      <td class="passed">
+                      
+                        content.data.pass
+                      </td>
+                      <td>eq</td>
+                      <td>True</td>
+                      <td>True</td>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>147</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>407.26</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>399.499</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_1_2">
+      <th class="success" style="width:5em;">success</td>
+      <td colspan="2">实名开放-银行四要素-姓名/身份证/卡号不匹配</td>
+      <td style="text-align:center;width:6em;">475.81 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_2">log</a>
+        <div id="popup_log_1_2" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_2">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://172.20.61.252:8380/bankfour/openBankFourRequest
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>User-Agent</strong>: python-requests/2.20.0
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-id</strong>: 1111563841
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                          </div>
+                          
+                          <div>
+                            <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 112
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1541571926.479073
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'name': '库里', 'idno': '362302198609175011', 'mobile': '13868070521', 'cardno': '6212261202030499843'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;name&#34;: &#34;\u5e93\u91cc&#34;, &#34;idno&#34;: &#34;362302198609175011&#34;, &#34;mobile&#34;: &#34;13868070521&#34;, &#34;cardno&#34;: &#34;6212261202030499843&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>User-Agent</strong>: python-requests/2.20.0
+                            </div>
+                            
+                            <div>
+                              <strong>Accept-Encoding</strong>: gzip, deflate
+                            </div>
+                            
+                            <div>
+                              <strong>Accept</strong>: */*
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: keep-alive
+                            </div>
+                            
+                            <div>
+                              <strong>content-type</strong>: application/json
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-id</strong>: 1111563841
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                            </div>
+                            
+                            <div>
+                              <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 112
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_size</th>
+                        <td>
+                          
+                            148
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>response_time_ms</th>
+                        <td>
+                          
+                            475.81
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>elapsed_ms</th>
+                        <td>
+                          
+                            473.065
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            {&#34;errCode&#34;:0,&#34;msg&#34;:&#34;执行成功&#34;,&#34;data&#34;:{&#34;success&#34;:true,&#34;message&#34;:&#34;执行成功&#34;,&#34;infoauthId&#34;:&#34;37356f63-3211-4449-a09d-413bfc09ca09&#34;,&#34;pass&#34;:false}}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://172.20.61.252:8380/bankfour/openBankFourRequest
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>text</th>
+                        <td>
+                          
+                            {"errCode":0,"msg":"执行成功","data":{"success":true,"message":"执行成功","infoauthId":"37356f63-3211-4449-a09d-413bfc09ca09","pass":false}}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>json</th>
+                        <td>
+                          
+                            {'errCode': 0, 'msg': '执行成功', 'data': {'success': True, 'message': '执行成功', 'infoauthId': '37356f63-3211-4449-a09d-413bfc09ca09', 'pass': False}}
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                    <tr>
+                      
+                      <td class="passed">
+                      
+                        content.data.pass
+                      </td>
+                      <td>eq</td>
+                      <td>False</td>
+                      <td>False</td>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>148</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>475.81</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>473.065</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_1_3">
+      <th class="failure" style="width:5em;">failure</td>
+      <td colspan="2">实名开放-银行四要素-姓名/身份证/卡号不匹配</td>
+      <td style="text-align:center;width:6em;">54.63 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_3">log</a>
+        <div id="popup_log_1_3" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_3">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://172.20.61.252:8380/bankfour/openBankFourRequest
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>User-Agent</strong>: python-requests/2.20.0
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-id</strong>: 1111563841
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                          </div>
+                          
+                          <div>
+                            <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 118
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1541571926.9668005
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'name': '陈威宇', 'idno': '362302198609175012', 'mobile': '13868070521', 'cardno': '6212261202030499843'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;name&#34;: &#34;\u9648\u5a01\u5b87&#34;, &#34;idno&#34;: &#34;362302198609175012&#34;, &#34;mobile&#34;: &#34;13868070521&#34;, &#34;cardno&#34;: &#34;6212261202030499843&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>User-Agent</strong>: python-requests/2.20.0
+                            </div>
+                            
+                            <div>
+                              <strong>Accept-Encoding</strong>: gzip, deflate
+                            </div>
+                            
+                            <div>
+                              <strong>Accept</strong>: */*
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: keep-alive
+                            </div>
+                            
+                            <div>
+                              <strong>content-type</strong>: application/json
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-id</strong>: 1111563841
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                            </div>
+                            
+                            <div>
+                              <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 118
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_size</th>
+                        <td>
+                          
+                            126
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>response_time_ms</th>
+                        <td>
+                          
+                            54.63
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>elapsed_ms</th>
+                        <td>
+                          
+                            51.655
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            {&#34;success&#34;:false,&#34;message&#34;:&#34;信息比对参数错误:身份证号格式错误&#34;,&#34;errCode&#34;:1100007,&#34;sessionId&#34;:null,&#34;data&#34;:null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://172.20.61.252:8380/bankfour/openBankFourRequest
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>text</th>
+                        <td>
+                          
+                            {"success":false,"message":"信息比对参数错误:身份证号格式错误","errCode":1100007,"sessionId":null,"data":null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>json</th>
+                        <td>
+                          
+                            {'success': False, 'message': '信息比对参数错误:身份证号格式错误', 'errCode': 1100007, 'sessionId': None, 'data': None}
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>126</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>54.63</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>51.655</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+          <a class="button" href="#popup_attachment_1_3">traceback</a>
+          <div id="popup_attachment_1_3" class="overlay">
+            <div class="popup">
+              <h2>Traceback Message</h2>
+              <a class="close" href="#record_1_3">&times;</a>
+              <div class="content"><pre>Traceback (most recent call last):
+  File "c:\software\python3.7.1\lib\site-packages\httprunner\task.py", line 27, in runTest
+    self.test_runner.run_test(self.testcase_dict)
+httprunner.exceptions.ExtractFailure: Failed to extract! => data.pass
+response body: {'success': False, 'message': '信息比对参数错误:身份证号格式错误', 'errCode': 1100007, 'sessionId': None, 'data': None}
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\software\python3.7.1\lib\site-packages\httprunner\task.py", line 29, in runTest
+    self.fail(repr(ex))
+AssertionError: ExtractFailure("Failed to extract! => data.pass\nresponse body: {'success': False, 'message': '信息比对参数错误:身份证号格式错误', 'errCode': 1100007, 'sessionId': None, 'data': None}\n")
+</pre></div>
+            </div>
+          </div>
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_1_4">
+      <th class="success" style="width:5em;">success</td>
+      <td colspan="2">实名开放-银行四要素-姓名/身份证/卡号不匹配</td>
+      <td style="text-align:center;width:6em;">196.68 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_4">log</a>
+        <div id="popup_log_1_4" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_4">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://172.20.61.252:8380/bankfour/openBankFourRequest
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>User-Agent</strong>: python-requests/2.20.0
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-id</strong>: 1111563841
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                          </div>
+                          
+                          <div>
+                            <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 118
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1541571927.040305
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'name': '陈威宇', 'idno': '362302198609175011', 'mobile': '13868070522', 'cardno': '6212261202030499843'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;name&#34;: &#34;\u9648\u5a01\u5b87&#34;, &#34;idno&#34;: &#34;362302198609175011&#34;, &#34;mobile&#34;: &#34;13868070522&#34;, &#34;cardno&#34;: &#34;6212261202030499843&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>User-Agent</strong>: python-requests/2.20.0
+                            </div>
+                            
+                            <div>
+                              <strong>Accept-Encoding</strong>: gzip, deflate
+                            </div>
+                            
+                            <div>
+                              <strong>Accept</strong>: */*
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: keep-alive
+                            </div>
+                            
+                            <div>
+                              <strong>content-type</strong>: application/json
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-id</strong>: 1111563841
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                            </div>
+                            
+                            <div>
+                              <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 118
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_size</th>
+                        <td>
+                          
+                            148
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>response_time_ms</th>
+                        <td>
+                          
+                            196.68
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>elapsed_ms</th>
+                        <td>
+                          
+                            193.826
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            {&#34;errCode&#34;:0,&#34;msg&#34;:&#34;执行成功&#34;,&#34;data&#34;:{&#34;success&#34;:true,&#34;message&#34;:&#34;执行成功&#34;,&#34;infoauthId&#34;:&#34;a5ee15fa-d1d9-496d-97d2-b58575c57d9f&#34;,&#34;pass&#34;:false}}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://172.20.61.252:8380/bankfour/openBankFourRequest
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>text</th>
+                        <td>
+                          
+                            {"errCode":0,"msg":"执行成功","data":{"success":true,"message":"执行成功","infoauthId":"a5ee15fa-d1d9-496d-97d2-b58575c57d9f","pass":false}}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>json</th>
+                        <td>
+                          
+                            {'errCode': 0, 'msg': '执行成功', 'data': {'success': True, 'message': '执行成功', 'infoauthId': 'a5ee15fa-d1d9-496d-97d2-b58575c57d9f', 'pass': False}}
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                    <tr>
+                      
+                      <td class="passed">
+                      
+                        content.data.pass
+                      </td>
+                      <td>eq</td>
+                      <td>False</td>
+                      <td>False</td>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>148</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>196.68</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>193.826</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_1_5">
+      <th class="success" style="width:5em;">success</td>
+      <td colspan="2">实名开放-银行四要素-姓名/身份证/卡号不匹配</td>
+      <td style="text-align:center;width:6em;">177.81 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_5">log</a>
+        <div id="popup_log_1_5" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_5">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://172.20.61.252:8380/bankfour/openBankFourRequest
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>User-Agent</strong>: python-requests/2.20.0
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-id</strong>: 1111563841
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                          </div>
+                          
+                          <div>
+                            <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 118
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1541571927.2489042
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'name': '陈威宇', 'idno': '362302198609175011', 'mobile': '13868070521', 'cardno': '6212261202030499842'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;name&#34;: &#34;\u9648\u5a01\u5b87&#34;, &#34;idno&#34;: &#34;362302198609175011&#34;, &#34;mobile&#34;: &#34;13868070521&#34;, &#34;cardno&#34;: &#34;6212261202030499842&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>User-Agent</strong>: python-requests/2.20.0
+                            </div>
+                            
+                            <div>
+                              <strong>Accept-Encoding</strong>: gzip, deflate
+                            </div>
+                            
+                            <div>
+                              <strong>Accept</strong>: */*
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: keep-alive
+                            </div>
+                            
+                            <div>
+                              <strong>content-type</strong>: application/json
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-id</strong>: 1111563841
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                            </div>
+                            
+                            <div>
+                              <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 118
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_size</th>
+                        <td>
+                          
+                            148
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>response_time_ms</th>
+                        <td>
+                          
+                            177.81
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>elapsed_ms</th>
+                        <td>
+                          
+                            175.822
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            {&#34;errCode&#34;:0,&#34;msg&#34;:&#34;执行成功&#34;,&#34;data&#34;:{&#34;success&#34;:true,&#34;message&#34;:&#34;执行成功&#34;,&#34;infoauthId&#34;:&#34;6635be67-4ec0-4a7e-adad-fa3508dc1809&#34;,&#34;pass&#34;:false}}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://172.20.61.252:8380/bankfour/openBankFourRequest
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>text</th>
+                        <td>
+                          
+                            {"errCode":0,"msg":"执行成功","data":{"success":true,"message":"执行成功","infoauthId":"6635be67-4ec0-4a7e-adad-fa3508dc1809","pass":false}}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>json</th>
+                        <td>
+                          
+                            {'errCode': 0, 'msg': '执行成功', 'data': {'success': True, 'message': '执行成功', 'infoauthId': '6635be67-4ec0-4a7e-adad-fa3508dc1809', 'pass': False}}
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                    <tr>
+                      
+                      <td class="passed">
+                      
+                        content.data.pass
+                      </td>
+                      <td>eq</td>
+                      <td>False</td>
+                      <td>False</td>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>148</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>177.81</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>175.822</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_1_6">
+      <th class="success" style="width:5em;">success</td>
+      <td colspan="2">实名开放-银行四要素-字段为空</td>
+      <td style="text-align:center;width:6em;">57.61 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_6">log</a>
+        <div id="popup_log_1_6" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_6">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://172.20.61.252:8380/bankfour/openBankFourRequest
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>User-Agent</strong>: python-requests/2.20.0
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-id</strong>: 1111563841
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                          </div>
+                          
+                          <div>
+                            <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 100
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1541571927.4356523
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'name': '', 'idno': '362302198609175011', 'mobile': '13868070521', 'cardno': '6212261202030499843'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;name&#34;: &#34;&#34;, &#34;idno&#34;: &#34;362302198609175011&#34;, &#34;mobile&#34;: &#34;13868070521&#34;, &#34;cardno&#34;: &#34;6212261202030499843&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>User-Agent</strong>: python-requests/2.20.0
+                            </div>
+                            
+                            <div>
+                              <strong>Accept-Encoding</strong>: gzip, deflate
+                            </div>
+                            
+                            <div>
+                              <strong>Accept</strong>: */*
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: keep-alive
+                            </div>
+                            
+                            <div>
+                              <strong>content-type</strong>: application/json
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-id</strong>: 1111563841
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                            </div>
+                            
+                            <div>
+                              <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 100
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_size</th>
+                        <td>
+                          
+                            119
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>response_time_ms</th>
+                        <td>
+                          
+                            57.61
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>elapsed_ms</th>
+                        <td>
+                          
+                            54.334
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            {&#34;success&#34;:false,&#34;message&#34;:&#34;信息比对参数错误:name 不能为空&#34;,&#34;errCode&#34;:1100007,&#34;sessionId&#34;:null,&#34;data&#34;:null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://172.20.61.252:8380/bankfour/openBankFourRequest
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>text</th>
+                        <td>
+                          
+                            {"success":false,"message":"信息比对参数错误:name 不能为空","errCode":1100007,"sessionId":null,"data":null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>json</th>
+                        <td>
+                          
+                            {'success': False, 'message': '信息比对参数错误:name 不能为空', 'errCode': 1100007, 'sessionId': None, 'data': None}
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                    <tr>
+                      
+                      <td class="passed">
+                      
+                        content.success
+                      </td>
+                      <td>eq</td>
+                      <td>False</td>
+                      <td>False</td>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>119</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>57.61</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>54.334</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_1_7">
+      <th class="success" style="width:5em;">success</td>
+      <td colspan="2">实名开放-银行四要素-字段为空</td>
+      <td style="text-align:center;width:6em;">77.48 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_7">log</a>
+        <div id="popup_log_1_7" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_7">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://172.20.61.252:8380/bankfour/openBankFourRequest
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>User-Agent</strong>: python-requests/2.20.0
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-id</strong>: 1111563841
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                          </div>
+                          
+                          <div>
+                            <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 100
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1541571927.5031986
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'name': '陈威宇', 'idno': '', 'mobile': '13868070521', 'cardno': '6212261202030499843'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;name&#34;: &#34;\u9648\u5a01\u5b87&#34;, &#34;idno&#34;: &#34;&#34;, &#34;mobile&#34;: &#34;13868070521&#34;, &#34;cardno&#34;: &#34;6212261202030499843&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>User-Agent</strong>: python-requests/2.20.0
+                            </div>
+                            
+                            <div>
+                              <strong>Accept-Encoding</strong>: gzip, deflate
+                            </div>
+                            
+                            <div>
+                              <strong>Accept</strong>: */*
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: keep-alive
+                            </div>
+                            
+                            <div>
+                              <strong>content-type</strong>: application/json
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-id</strong>: 1111563841
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                            </div>
+                            
+                            <div>
+                              <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 100
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_size</th>
+                        <td>
+                          
+                            119
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>response_time_ms</th>
+                        <td>
+                          
+                            77.48
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>elapsed_ms</th>
+                        <td>
+                          
+                            74.146
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            {&#34;success&#34;:false,&#34;message&#34;:&#34;信息比对参数错误:idno 不能为空&#34;,&#34;errCode&#34;:1100007,&#34;sessionId&#34;:null,&#34;data&#34;:null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://172.20.61.252:8380/bankfour/openBankFourRequest
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>text</th>
+                        <td>
+                          
+                            {"success":false,"message":"信息比对参数错误:idno 不能为空","errCode":1100007,"sessionId":null,"data":null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>json</th>
+                        <td>
+                          
+                            {'success': False, 'message': '信息比对参数错误:idno 不能为空', 'errCode': 1100007, 'sessionId': None, 'data': None}
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                    <tr>
+                      
+                      <td class="passed">
+                      
+                        content.success
+                      </td>
+                      <td>eq</td>
+                      <td>False</td>
+                      <td>False</td>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>119</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>77.48</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>74.146</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_1_8">
+      <th class="success" style="width:5em;">success</td>
+      <td colspan="2">实名开放-银行四要素-字段为空</td>
+      <td style="text-align:center;width:6em;">37.74 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_8">log</a>
+        <div id="popup_log_1_8" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_8">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://172.20.61.252:8380/bankfour/openBankFourRequest
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>User-Agent</strong>: python-requests/2.20.0
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-id</strong>: 1111563841
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                          </div>
+                          
+                          <div>
+                            <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 107
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1541571927.590612
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'name': '陈威宇', 'idno': '362302198609175011', 'mobile': '', 'cardno': '6212261202030499843'}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;name&#34;: &#34;\u9648\u5a01\u5b87&#34;, &#34;idno&#34;: &#34;362302198609175011&#34;, &#34;mobile&#34;: &#34;&#34;, &#34;cardno&#34;: &#34;6212261202030499843&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>User-Agent</strong>: python-requests/2.20.0
+                            </div>
+                            
+                            <div>
+                              <strong>Accept-Encoding</strong>: gzip, deflate
+                            </div>
+                            
+                            <div>
+                              <strong>Accept</strong>: */*
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: keep-alive
+                            </div>
+                            
+                            <div>
+                              <strong>content-type</strong>: application/json
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-id</strong>: 1111563841
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                            </div>
+                            
+                            <div>
+                              <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 107
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_size</th>
+                        <td>
+                          
+                            121
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>response_time_ms</th>
+                        <td>
+                          
+                            37.74
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>elapsed_ms</th>
+                        <td>
+                          
+                            34.185
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            {&#34;success&#34;:false,&#34;message&#34;:&#34;信息比对参数错误:mobile 不能为空&#34;,&#34;errCode&#34;:1100007,&#34;sessionId&#34;:null,&#34;data&#34;:null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://172.20.61.252:8380/bankfour/openBankFourRequest
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>text</th>
+                        <td>
+                          
+                            {"success":false,"message":"信息比对参数错误:mobile 不能为空","errCode":1100007,"sessionId":null,"data":null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>json</th>
+                        <td>
+                          
+                            {'success': False, 'message': '信息比对参数错误:mobile 不能为空', 'errCode': 1100007, 'sessionId': None, 'data': None}
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                    <tr>
+                      
+                      <td class="passed">
+                      
+                        content.success
+                      </td>
+                      <td>eq</td>
+                      <td>False</td>
+                      <td>False</td>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>121</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>37.74</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>34.185</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+
+      </td>
+    </tr>
+  
+    
+    <tr id="record_1_9">
+      <th class="success" style="width:5em;">success</td>
+      <td colspan="2">实名开放-银行四要素-字段为空</td>
+      <td style="text-align:center;width:6em;">39.73 ms</td>
+      <td class="detail">
+
+        <a class="button" href="#popup_log_1_9">log</a>
+        <div id="popup_log_1_9" class="overlay">
+          <div class="popup">
+            <h2>Request and Response data</h2>
+            <a class="close" href="#record_1_9">&times;</a>
+
+            <div class="content">
+              <h3>Request:</h3>
+              <div style="overflow: auto">
+                <table>
+                  
+                    <tr>
+                      <th>url</th>
+                      <td>
+                        
+                          http://172.20.61.252:8380/bankfour/openBankFourRequest
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>method</th>
+                      <td>
+                        
+                          POST
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>headers</th>
+                      <td>
+                        
+                          
+                          <div>
+                            <strong>User-Agent</strong>: python-requests/2.20.0
+                          </div>
+                          
+                          <div>
+                            <strong>Accept-Encoding</strong>: gzip, deflate
+                          </div>
+                          
+                          <div>
+                            <strong>Accept</strong>: */*
+                          </div>
+                          
+                          <div>
+                            <strong>Connection</strong>: keep-alive
+                          </div>
+                          
+                          <div>
+                            <strong>content-type</strong>: application/json
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-id</strong>: 1111563841
+                          </div>
+                          
+                          <div>
+                            <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                          </div>
+                          
+                          <div>
+                            <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                          </div>
+                          
+                          <div>
+                            <strong>Content-Length</strong>: 99
+                          </div>
+                          
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>start_timestamp</th>
+                      <td>
+                        
+                          1541571927.644252
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>json</th>
+                      <td>
+                        
+                          {'name': '陈威宇', 'idno': '362302198609175011', 'mobile': '13868070521', 'cardno': ''}
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <th>body</th>
+                      <td>
+                        
+                          {&#34;name&#34;: &#34;\u9648\u5a01\u5b87&#34;, &#34;idno&#34;: &#34;362302198609175011&#34;, &#34;mobile&#34;: &#34;13868070521&#34;, &#34;cardno&#34;: &#34;&#34;}
+                        
+                      </td>
+                    </tr>
+                  
+                </table>
+              </div>
+
+              <h3>Response:</h3>
+              <div style="overflow: auto">
+                <table>
+                    
+                      <tr>
+                        <th>status_code</th>
+                        <td>
+                          
+                            200
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>headers</th>
+                        <td>
+                          
+                            
+                            <div>
+                              <strong>User-Agent</strong>: python-requests/2.20.0
+                            </div>
+                            
+                            <div>
+                              <strong>Accept-Encoding</strong>: gzip, deflate
+                            </div>
+                            
+                            <div>
+                              <strong>Accept</strong>: */*
+                            </div>
+                            
+                            <div>
+                              <strong>Connection</strong>: keep-alive
+                            </div>
+                            
+                            <div>
+                              <strong>content-type</strong>: application/json
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-id</strong>: 1111563841
+                            </div>
+                            
+                            <div>
+                              <strong>x-tsign-open-app-secret</strong>: 753b9f6acafcbba300315838be3374c1
+                            </div>
+                            
+                            <div>
+                              <strong>Cookie</strong>: SESSION=d8ed975c-b54c-4ce4-8f0f-2b957a68946f
+                            </div>
+                            
+                            <div>
+                              <strong>Content-Length</strong>: 99
+                            </div>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_size</th>
+                        <td>
+                          
+                            121
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>response_time_ms</th>
+                        <td>
+                          
+                            39.73
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>elapsed_ms</th>
+                        <td>
+                          
+                            36.37
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>encoding</th>
+                        <td>
+                          
+                            UTF-8
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content</th>
+                        <td>
+                          
+                            {&#34;success&#34;:false,&#34;message&#34;:&#34;信息比对参数错误:cardno 不能为空&#34;,&#34;errCode&#34;:1100007,&#34;sessionId&#34;:null,&#34;data&#34;:null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>content_type</th>
+                        <td>
+                          
+                            
+                              <pre></pre>
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>ok</th>
+                        <td>
+                          
+                            True
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>url</th>
+                        <td>
+                          
+                            http://172.20.61.252:8380/bankfour/openBankFourRequest
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>reason</th>
+                        <td>
+                          
+                            
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>cookies</th>
+                        <td>
+                          
+                            {}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>text</th>
+                        <td>
+                          
+                            {"success":false,"message":"信息比对参数错误:cardno 不能为空","errCode":1100007,"sessionId":null,"data":null}
+                          
+                        </td>
+                      </tr>
+                    
+                      <tr>
+                        <th>json</th>
+                        <td>
+                          
+                            {'success': False, 'message': '信息比对参数错误:cardno 不能为空', 'errCode': 1100007, 'sessionId': None, 'data': None}
+                          
+                        </td>
+                      </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Validators:</h3>
+              <div style="overflow: auto">
+                  <table>
+                    <tr>
+                      <th>check</th>
+                      <th>comparator</th>
+                      <th>expect value</th>
+                      <th>actual value</th>
+                    </tr>
+                    
+                    <tr>
+                      
+                      <td class="passed">
+                      
+                        content.success
+                      </td>
+                      <td>eq</td>
+                      <td>False</td>
+                      <td>False</td>
+                    </tr>
+                    
+                  </table>
+              </div>
+
+              <h3>Statistics:</h3>
+              <div style="overflow: auto">
+                <table>
+                  <tr>
+                      <th>content_size(bytes)</th>
+                      <td>121</td>
+                    </tr>
+                  <tr>
+                    <th>response_time(ms)</th>
+                    <td>39.73</td>
+                  </tr>
+                  <tr>
+                    <th>elapsed(ms)</th>
+                    <td>36.37</td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+
+      </td>
+    </tr>
+  
+  </table>
+  
+</body>
