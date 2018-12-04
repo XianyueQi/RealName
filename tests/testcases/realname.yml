@@ -89,48 +89,48 @@
 #         - eq: [content.success, true]
 #         - eq: [content.data.serviceId, $serviceId]
 
-- test:
-    name: 打款（字段为空）
-    parameters:
-        - c_name-bank-cardno_org-subbranch:
-            - ["","平安银行","11003491675701","平安银行杭州高新支行"]
-            - ["杭州天谷信息科技有限公司","","11003491675701","平安银行杭州高新支行"]
-            - ["杭州天谷信息科技有限公司","平安银行","","平安银行杭州高新支行"]
-            - ["杭州天谷信息科技有限公司","平安银行","11003491675701",""]
-    api: toPayOrg($serviceId,$c_name,$bank,$cardno_org,$subbranch)
-    validate:
-        - eq: [content.success, false]
+# - test:
+#     name: 打款（字段为空）
+#     parameters:
+#         - c_name-bank-cardno_org-subbranch:
+#             - ["","平安银行","11003491675701","平安银行杭州高新支行"]
+#             - ["杭州天谷信息科技有限公司","","11003491675701","平安银行杭州高新支行"]
+#             - ["杭州天谷信息科技有限公司","平安银行","","平安银行杭州高新支行"]
+#             - ["杭州天谷信息科技有限公司","平安银行","11003491675701",""]
+#     api: toPayOrg($serviceId,$c_name,$bank,$cardno_org,$subbranch)
+#     validate:
+#         - eq: [content.success, false]
 
-- test:
-    name: 校验金额（正确）
-    api: payAuth($serviceId,$cash)
-    validate:
-        - eq: [content.success, true]
+# - test:
+#     name: 校验金额（正确）
+#     api: payAuth($serviceId,$cash)
+#     validate:
+#         - eq: [content.success, true]
 
-- test:
-    name: 校验金额（金额错误）
-    times: 3
-    api: payAuth($serviceId,0.02)
-    validate:
-        - contains: [content.message, 打款金额验证失败]
+# - test:
+#     name: 校验金额（金额错误）
+#     times: 3
+#     api: payAuth($serviceId,0.02)
+#     validate:
+#         - contains: [content.message, 打款金额验证失败]
 
-- test:
-    name: 校验金额（金额错误超限）
-    api: payAuth($serviceId,0.02)
-    validate:
-        - contains: [content.message, 超出最大验证次数]
+# - test:
+#     name: 校验金额（金额错误超限）
+#     api: payAuth($serviceId,0.02)
+#     validate:
+#         - contains: [content.message, 超出最大验证次数]
 
-- test:
-    name: 校验金额（流程关闭）
-    api: payAuth($serviceId,0.02)
-    validate:
-        - contains: [content.message, 认证流程已关闭]
+# - test:
+#     name: 校验金额（流程关闭）
+#     api: payAuth($serviceId,0.02)
+#     validate:
+#         - contains: [content.message, 认证流程已关闭]
 
-- test:
-    name: 打款查询（只保证接口通）
-    api: payQuery($serviceId)
-    validate:
-        - eq: [content.success, true]
+# - test:
+#     name: 打款查询（只保证接口通）
+#     api: payQuery($serviceId)
+#     validate:
+#         - eq: [content.success, true]
 
 - test:
     name: 获取实名认证开放服务地址（个人-正确）
