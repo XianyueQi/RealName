@@ -27,7 +27,7 @@
             - ["高美君","14273019911003072X","18292689424",""]
     api: bankFour($name,$idno,$mobile,$cardno)
     validate:
-        - eq: [content.success, false]
+        - eq: [content.success, true]
 
 - test:
     name: 短信验证码校验(正确)
