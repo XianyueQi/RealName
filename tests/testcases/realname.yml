@@ -1,0 +1,175 @@
+- config:
+    name: 实名认证内部服务
+    request: 
+        base_url: $base_url
+        headers:
+            Content-Type: application/json
+
+- test:
+    name: 银行四要素(正确)
+    api: bankFour($name,$idno,$mobile,$cardno)
+    extract:
+        - serviceId: content.data.serviceId
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 个人银行四要素+短信验证码(信息不正确&字段为空)
+    parameters:
+        - name-idno-mobile-cardno:
+            - ["高美","14273019911003072X","18292689424","6214850293496011"]
+            - ["高美君","14273019911003071X","18292689424","6214850293496011"]
+            - ["高美君","14273019911003072X","18292689434","6214850293496011"]
+            - ["高美君","14273019911003072X","18292689424","6214850293496021"]
+            - ["","14273019911003072X","18292689424","6214850293496021"] 
+            - ["高美君","","18292689424","6214850293496021"]
+            - ["高美君","14273019911003072X","","6214850293496021"]
+            - ["高美君","14273019911003072X","18292689424",""]
+    api: bankFour($name,$idno,$mobile,$cardno)
+    validate:
+        - eq: [content.success, false]
+
+- test:
+    name: 短信验证码校验(正确)
+    api: validateAuthCode($serviceId,$authcode)
+    teardown_hooks:
+        - ${sleep_secs(2)} 
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 短信验证码校验(验证码不正确/字段为空)
+    parameters:
+        - authcode: ["654321",""]
+    api: validateAuthCode($serviceId,$authcode) 
+    validate:
+        - eq: [content.success, false]
+
+- test:
+    name: 获取刷脸URL（微众：1，芝麻：2）
+    parameters:
+        - faceAuthMode: ["1","2"]
+    api: faceAuthByUrl($name,$idno,$isfrom,$faceAuthMode,$callbackUrl)
+    extract:
+        - serviceId: content.data.serviceId
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 查询刷脸认证结果
+    api: queryFaceAuthByUrlResult($serviceId)
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 企业信息比对（正确）
+    api: orgInfoAuth($c_name,$codeORG,$codeREG,$codeUSC,$legalName)
+    extract:
+        - serviceId: content.data.serviceId
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 企业信息比对（信息不正确/字段为空）
+    parameters:
+        - codeORG-codeREG-codeUSC-legalName:
+            - ["745830608","","","何一兵"]
+            - ["","330108000003513","",""]
+            - ["","","913301087458306078",""]
+            - ["","","","何一兵"]
+            - ["745830607","330108000003512","913301087458306077","何一"]
+    api: orgInfoAuth($c_name,$codeORG,$codeREG,$codeUSC,$legalName)
+    validate: 
+        - eq: [content.success, false]
+
+- test:
+    name: 打款（正确）
+    api: toPayOrg($serviceId,$c_name,$bank,$cardno_org,$subbranch)
+    validate:
+        - eq: [content.success, true]
+        - eq: [content.data.serviceId, $serviceId]
+
+- test:
+    name: 打款（字段为空）
+    parameters:
+        - c_name-bank-cardno_org-subbranch:
+            - ["","平安银行","11003491675701","平安银行杭州高新支行"]
+            - ["杭州天谷信息科技有限公司","","11003491675701","平安银行杭州高新支行"]
+            - ["杭州天谷信息科技有限公司","平安银行","","平安银行杭州高新支行"]
+            - ["杭州天谷信息科技有限公司","平安银行","11003491675701",""]
+    api: toPayOrg($serviceId,$c_name,$bank,$cardno_org,$subbranch)
+    validate:
+        - eq: [content.success, false]
+
+# - test:
+#     name: 校验金额（正确）
+#     api: payAuth($serviceId,$cash)
+#     validate:
+#         - eq: [content.success, true]
+
+- test:
+    name: 校验金额（金额错误）
+    times: 3
+    api: payAuth($serviceId,0.02)
+    validate:
+        - contains: [content.message, 打款金额验证失败]
+
+- test:
+    name: 校验金额（金额错误超限）
+    api: payAuth($serviceId,0.02)
+    validate:
+        - contains: [content.message, 超出最大验证次数]
+
+- test:
+    name: 校验金额（流程关闭）
+    api: payAuth($serviceId,0.02)
+    validate:
+        - contains: [content.message, 认证流程已关闭]
+
+- test:
+    name: 打款查询（只保证接口通）
+    api: payQuery($serviceId)
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 获取实名认证开放服务地址（个人-正确）
+    api: getOpenRealnameUrl($oid,$orgOid,$projectId,$callbackUrl,2)
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 获取实名认证开放服务地址（个人-字段为空）
+    parameters:
+        - oid-projectId-realNameObject:
+            - ["","1111563841","2"]
+            - ["$oid","","2"]
+            - ["527b32be6568435ebdfc4412944906ac","1111563841",""]
+    api: getOpenRealnameUrl($oid,$orgOid,$projectId,$callbackUrl,$realNameObject)
+    validate:
+        - eq: [content.success, false]
+
+- test:
+    name: 获取实名认证开放服务地址（企业-正确）
+    api: getOpenRealnameUrl($oid,$orgOid,$projectId,$callbackUrl,1)
+    validate:
+        - eq: [content.success, true]
+
+- test:
+    name: 获取实名认证开放服务地址（企业-字段为空）
+    parameters:
+        - oid-orgOid-projectId-realNameObject:
+            - ["","69ddbdf50bb84cdb963ee991c451d800","1111563841","1"]
+            - ["527b32be6568435ebdfc4412944906ac","","1111563841","1"]
+            - ["527b32be6568435ebdfc4412944906ac","69ddbdf50bb84cdb963ee991c451d800","","1"]
+            - ["527b32be6568435ebdfc4412944906ac","69ddbdf50bb84cdb963ee991c451d800","1111563841",""]
+    api: getOpenRealnameUrl($oid,$orgOid,$projectId,$callbackUrl,$realNameObject)
+    validate:
+        - eq: [content.success, false]
+
+
+                                               
+        
+                                           
+
+
