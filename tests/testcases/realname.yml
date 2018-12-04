@@ -5,13 +5,13 @@
         headers:
             Content-Type: application/json
 
-- test:
-    name: 银行四要素(正确)
-    api: bankFour($name,$idno,$mobile,$cardno)
-    extract:
-        - serviceId: content.data.serviceId
-    validate:
-        - eq: [content.success, true]
+# - test:
+#     name: 银行四要素(正确)
+#     api: bankFour($name,$idno,$mobile,$cardno)
+#     extract:
+#         - serviceId: content.data.serviceId
+#     validate:
+#         - eq: [content.success, true]
 
 - test:
     name: 个人银行四要素+短信验证码(信息不正确&字段为空)
